@@ -1,6 +1,6 @@
 name: Build and Deploy
 
-on: [push]
+on: [ push ]
 
 jobs:
   build-and-deploy:
@@ -19,14 +19,14 @@ jobs:
       - name: Install
         run: npm install
 
-      - name: Build
-        run: npm run deploy
+      - name: Install
+        run: npm run build
 
-#      - name: Deploy 🚀
-#        uses: JamesIves/github-pages-deploy-action@3.7.1
-#        with:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#          BRANCH: master # The branch the action should deploy to.
-#          FOLDER: build # The folder the action should deploy.
-##          CLEAN: true # Automatically remove deleted files from the deploy branch
-##          PRESERVE: true
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: build
+          GIT_CONFIG_NAME: deployment_bot
+          GIT_CONFIG_EMAIL: deployment_bot@yopmail.com
