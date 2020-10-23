@@ -1,7 +1,7 @@
 import React from 'react'
 import logo from './logo.svg'
 import './App.css'
-import { HashRouter, Route, Link, BrowserRouter } from 'react-router-dom'
+import { Route, Link, BrowserRouter } from 'react-router-dom'
 
 const Home = () => {
   return <div className="App">
