@@ -1,7 +1,7 @@
 import React from 'react'
 import logo from './logo.svg'
 import './App.css'
-import { HashRouter, Route, Link } from 'react-router-dom'
+import { HashRouter, Route, Link, BrowserRouter } from 'react-router-dom'
 
 const Home = () => {
   return <div className="App">
@@ -26,7 +26,7 @@ const Page = () => {
 }
 
 function App() {
-  return (<HashRouter basename="/">
+  return (<BrowserRouter>
     <Link to="/">
       home
     </Link>
@@ -35,7 +35,7 @@ function App() {
     </Link>
     <Route path="/" exact={true} component={Home}/>
     <Route path="/page" exact={true} component={Page}/>
-  </HashRouter>)
+  </BrowserRouter>)
 }
 
 export default App
