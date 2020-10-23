@@ -6,11 +6,6 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Config git
-        run: |
-          git config --global user.name SzymonJaworskiRF[bot]
-          git config --global user.email szymon.jaworski@rumblefish.pl
-
       - name: Checkout 🛎️
         uses: actions/checkout@v2.3.1 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
         with:
@@ -28,5 +23,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
           FOLDER: build
-          GIT_CONFIG_NAME: deployment_bot
-          GIT_CONFIG_EMAIL: deployment_bot@yopmail.com
+          GIT_CONFIG_NAME: github-actions[bot]
+          GIT_CONFIG_EMAIL: github-actions[bot]@rumblefish.pl
