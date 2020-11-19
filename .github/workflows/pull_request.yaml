@@ -21,8 +21,7 @@ jobs:
       - uses: kentaro-m/auto-assign-action@v1.1.2
         if: github.event.action == 'opened'
         with:
-          reviewers:
-            - SzymonJaworskiRF
+          configuration-path: .github/configs/auto_assign.yaml
 
   move_pull_request_after_closed:
     runs-on: ubuntu-latest
