@@ -15,6 +15,15 @@ jobs:
           column: Code review
           repo-token: ${{ secrets.AUTOMATION }}
 
+  assign_reviewers:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: kentaro-m/auto-assign-action@v1.1.2
+        if: github.event.action == 'opened'
+        with:
+          reviewers:
+            - SzymonJaworskiRF
+
   move_pull_request_after_closed:
     runs-on: ubuntu-latest
     steps:
