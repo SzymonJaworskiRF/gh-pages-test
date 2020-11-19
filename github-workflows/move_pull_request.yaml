@@ -1,8 +1,8 @@
-name: Move issue to ongoing
+name: move_pull_request
 
 on:
-  issues:
-    types: [ closed ]
+  pull_request:
+    types: [ opened, closed ]
 
 jobs:
   automate-project-columns:

@@ -1,8 +1,8 @@
-name: Move issue to ongoing
+name: move_issue
 
 on:
-  pull_request:
-    types: [ closed ]
+  issues:
+    types: [ assigned ]
 
 jobs:
   automate-project-columns:
@@ -11,5 +11,5 @@ jobs:
       - uses: alex-page/github-project-automation-plus@v0.3.0
         with:
           project: Testing automation
-          column: Done
+          column: Ongoing
           repo-token: ${{ secrets.AUTOMATION }}

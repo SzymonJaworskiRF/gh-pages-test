@@ -1,0 +1,26 @@
+name: Pull request workflow
+
+on:
+  pull_request:
+    types: [ closed, opened ]
+
+jobs:
+  move_pull_request_after_opened:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: alex-page/github-project-automation-plus@v0.3.0
+        if: github.event.action == 'opened'
+        with:
+          project: Testing automation
+          column: Code review
+          repo-token: ${{ secrets.AUTOMATION }}
+
+  move_pull_request_after_closed:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: alex-page/github-project-automation-plus@v0.3.0
+        if: github.event.action == 'closed'
+        with:
+          project: Testing automation
+          column: Done
+          repo-token: ${{ secrets.AUTOMATION }}
