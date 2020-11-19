@@ -3,6 +3,7 @@ name: Link pull request
 on:
   pull_request:
     types: [ opened ]
+
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -15,5 +16,5 @@ jobs:
         uses: srggrs/assign-one-project-github-action@1.2.0
         if: github.event.action == 'opened'
         with:
-          project: 'https://github.com/SzymonJaworskiRF/gh-pages-test/projects/1'
-          column_name: 'Code review'
+          project: https://github.com/SzymonJaworskiRF/github-actions-test/projects/1
+          column_name: Code review
