@@ -1,0 +1,19 @@
+name: Link pull request
+
+on:
+  pull_request:
+    types: [ opened ]
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  assign_one_project:
+    runs-on: ubuntu-latest
+    name: Assign to One Project
+    steps:
+      - name: Assign new pull request to the project
+        uses: srggrs/assign-one-project-github-action@1.2.0
+        if: github.event.action == 'opened'
+        with:
+          project: 'https://github.com/SzymonJaworskiRF/gh-pages-test/projects/1'
+          column_name: 'Code review'
